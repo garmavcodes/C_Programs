@@ -63,7 +63,8 @@ int main()
 	// read original file
 	ptr=fopen("myfile.txt","r");
 	fgets(str,400,ptr);
-	printf("the bill before:%s",str);
+	printf("the bill before:%s\n\n",str);
+	
 
 	char * newstr; // store replaced string
 	ptr2=fopen("myfile2.txt","w");
@@ -75,7 +76,8 @@ int main()
 
 	// write replaced string to file and display
 	fprintf(ptr2,"%s",newstr);
-	printf("%s",newstr);
+	printf("the bill later:%s",newstr);
+	
 	free(newstr);
 	fclose(ptr);
 	fclose(ptr2);
