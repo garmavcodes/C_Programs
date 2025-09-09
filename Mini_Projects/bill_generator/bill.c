@@ -76,8 +76,8 @@ int main()
 	// write replaced string to file and display
 	fprintf(ptr2,"%s",newstr);
 	printf("%s",newstr);
-  free(newstr);
-  fclose(ptr);
-  fclose(ptr2);
+	free(newstr);
+	fclose(ptr);
+	fclose(ptr2);
 	return 0;
 }
