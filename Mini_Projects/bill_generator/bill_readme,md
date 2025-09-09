@@ -1,0 +1,17 @@
+# Bill Generator
+
+This C program automatically replaces placeholders in a text file with user input, generating a personalized bill.
+
+## Features
+
+- Reads a bill template from `myfile.txt`.
+- Replaces placeholders `(name)`, `(item)`, and `(outlet)` with user inputs.
+- Saves the personalized bill to `myfile2.txt`.
+- Displays the final bill on the screen.
+
+## How to Use
+
+1. Run the program.
+2. Enter your **name**, **purchased item**, and **outlet name** when prompted.
+3. The program will read the original file and replace the placeholders.
+4. View the output in the console and in `myfile2.txt`.
