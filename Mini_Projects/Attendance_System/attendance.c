@@ -34,7 +34,7 @@ void add_student(int* n,std **Student) {
 		printf("Enter Name:");
 		fgets((*Student)[(*n)-1].name,30,stdin);
 		(*Student)[(*n)-1].name[strcspn((*Student)[(*n)-1].name,"\n")]=0;
-		strcpy((*Student)[(*n)-1].status,"");
+		strcpy((*Student)[(*n)-1].status,"Not Marked");
 		printf("\nAdded Successfully!!\n");//student added
 	}
 }
@@ -88,18 +88,12 @@ void mark_attendance(int *n,std **Student) {
 //function to view attendance
 void view_attendance(int n,std *Student,FILE*ptr) {
 	fprintf(ptr,"------Attendance Report------\n\n");
-	if(n==0) {
-	   	fprintf(ptr,"\nNo Report.Attendance Not Taken.\n");
-		return;
-	}
-	else {
-		fprintf(ptr,"Date:%s\n",__DATE__);//date
-		fprintf(ptr,"=======================================\n");
-		fprintf(ptr,"ROLL.NO     NAME           STATUS\n");
-		fprintf(ptr,"=======================================\n");
-		for(int i=0; i<n; i++) {
-			fprintf(ptr,"%-10d  %-15s %-10s\n",Student[i].roll_no,Student[i].name,Student[i].status);
-		}
+	fprintf(ptr,"Date:%s\n",__DATE__);//date
+	fprintf(ptr,"=======================================\n");
+	fprintf(ptr,"ROLL.NO     NAME           STATUS\n");
+	fprintf(ptr,"=======================================\n");
+	for(int i=0; i<n; i++) {
+		fprintf(ptr,"%-10d  %-15s %-10s\n",Student[i].roll_no,Student[i].name,Student[i].status);
 	}
 }
 
