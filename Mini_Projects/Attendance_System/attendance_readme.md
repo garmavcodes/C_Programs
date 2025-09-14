@@ -15,4 +15,4 @@ A simple console-based student attendance management system implemented in C.
 1. Compile the program using a C compiler.
 2. Run the executable.
 3. Follow the on-screen menu to perform desired actions.
-4. To exit, select the logout or exit options.
+4. To exit, select the exit options.
