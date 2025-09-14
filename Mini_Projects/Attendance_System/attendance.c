@@ -41,11 +41,17 @@ void add_student(int* n,std **Student) {
 
 //function to view students
 void view_students(int n,std *Student) {
-	printf("=============================\n");
-	printf("ROLL.NO       NAME\n");
-	printf("=============================\n");
-	for(int i=0; i<n; i++) {
-		printf("%d         %s\n",Student[i].roll_no,Student[i].name);
+	if(n==0) {
+		printf("\nNo Students.Add Students First\n");
+		return;
+	}
+	else {
+		printf("=============================\n");
+		printf("ROLL.NO       NAME\n");
+		printf("=============================\n");
+		for(int i=0; i<n; i++) {
+			printf("%d         %s\n",Student[i].roll_no,Student[i].name);
+		}
 	}
 }
 
@@ -82,12 +88,18 @@ void mark_attendance(int *n,std **Student) {
 //function to view attendance
 void view_attendance(int n,std *Student,FILE*ptr) {
 	fprintf(ptr,"------Attendance Report------\n\n");
-	fprintf(ptr,"Date:%s\n",__DATE__);//date
-	fprintf(ptr,"=======================================\n");
-	fprintf(ptr,"ROLL.NO     NAME           STATUS\n");
-	fprintf(ptr,"=======================================\n");
-	for(int i=0; i<n; i++) {
-		fprintf(ptr,"%-10d  %-15s %-10s\n",Student[i].roll_no,Student[i].name,Student[i].status);
+	if(n==0) {
+	   	fprintf(ptr,"\nNo Report.Attendance Not Taken.\n");
+		return;
+	}
+	else {
+		fprintf(ptr,"Date:%s\n",__DATE__);//date
+		fprintf(ptr,"=======================================\n");
+		fprintf(ptr,"ROLL.NO     NAME           STATUS\n");
+		fprintf(ptr,"=======================================\n");
+		for(int i=0; i<n; i++) {
+			fprintf(ptr,"%-10d  %-15s %-10s\n",Student[i].roll_no,Student[i].name,Student[i].status);
+		}
 	}
 }
 
@@ -102,9 +114,9 @@ int main()
 		perror("Failed to open file");
 		exit(1);
 	}
-	
+
 	do {
-	    //Attendance Menu
+		//Attendance Menu
 		printf("\n========ATTENDANCE SYSTEM========\n\n");
 		printf("1.Add Student\n2.View Students\n3.Mark Attendance\n4.View Attendance\n5.Exit\n\n");
 		printf("enter your choice:");
@@ -137,7 +149,7 @@ int main()
 		}
 	}
 	while(choice!=5);//untill the user exit
-	
+
 	free(Student);//free memory
 	fclose(ptr);//close the file
 }
